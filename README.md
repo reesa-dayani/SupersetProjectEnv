@@ -14,8 +14,7 @@ Clone this repository to your local machine:
 - git clone https://github.com/reesa-dayani/4411ProjectEnv.git
 - cd 4411ProjectEnv
 - In the terminal,
--   either type in: touch .env + paste your .env credentials
--   move the .env file (already downloaded) to 4411ProjectEnv directory
+-   either type in: touch .env + paste your .env credentials OR move the .env file (already downloaded) to 4411ProjectEnv directory
 
 Run the following command to build and start the containers:
 - docker-compose build
