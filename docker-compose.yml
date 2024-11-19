@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  superset:
+    image: superset-custom  # Use the newly built image
+    container_name: superset
+    ports:
+      - "8086:8086"
+    environment:
+      SUPERSET_LOAD_EXAMPLES: "no"
+      SUPERSET_ADMIN_USERNAME: ${SUPERSET_ADMIN_USERNAME}
+      SUPERSET_ADMIN_PASSWORD: ${SUPERSET_ADMIN_PASSWORD}
+      SUPERSET_ADMIN_EMAIL: ${SUPERSET_ADMIN_EMAIL}
+    volumes:
+      - ./superset_config.py:/app/superset_config.py
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"  # Expose MySQL on port 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist MySQL data
+
+volumes:
+  mysql_data:

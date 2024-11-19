@@ -1,0 +1,76 @@
+# version: "3.7"
+
+# services:
+#   nginx:
+#     image: nginx:latest
+#     container_name: superset_nginx
+#     restart: unless-stopped
+#     ports:
+#       - "80:80"
+#     volumes:
+#       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+#     depends_on:
+#       - superset
+
+#   redis:
+#     image: redis:7
+#     container_name: superset_cache
+#     restart: unless-stopped
+#     ports:
+#       - "6379:6379"
+#     volumes:
+#       - redis:/data
+
+#   db:
+#     image: mysql:8.0
+#     container_name: mysql_db
+#     restart: unless-stopped
+#     environment:
+#       MYSQL_ROOT_PASSWORD: testuser
+#       MYSQL_DATABASE: superset_db
+#       MYSQL_USER: testuser
+#       MYSQL_PASSWORD: testuser
+#     ports:
+#       - "3306:3306"
+#     volumes:
+#       - db_data:/var/lib/mysql
+#     healthcheck:
+#       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ptestuser"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 3
+
+#   superset:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: superset_app
+#     restart: unless-stopped
+#     ports:
+#       - "8088:8088"
+#     depends_on:
+#       - db
+#       - redis
+#     environment:
+#       SUPERSET_CONFIG_PATH: "/app/superset_config.py"
+#       FLASK_ENV: "development"
+#       SQLALCHEMY_DATABASE_URI: "mysql://testuser:testuser@db:3306/superset_db"
+#     volumes:
+#       - ./superset:/app/superset
+#       - ./superset-frontend:/app/superset-frontend
+#       - ./docker:/app/docker
+#       - ./superset_config.py:/app/superset_config.py
+#       - superset_home:/app/superset_home
+#     command: >
+#       /bin/sh -c "wait-for-it db:3306 --timeout=60 -- 
+#       superset db upgrade && 
+#       superset fab create-admin --username admin --firstname Admin --lastname User --email admin@superset.com --password admin && 
+#       superset run -p 8088 --with-threads --reload --debugger"
+
+# volumes:
+#   redis:
+#     external: false
+#   db_data:
+#     external: false
+#   superset_home:
+#     external: false
