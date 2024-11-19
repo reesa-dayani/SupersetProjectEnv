@@ -11,8 +11,8 @@ This repository contains a pre-configured setup to run Apache Superset using Doc
 
 ### 1. Clone the Repository
 Clone this repository to your local machine:
-git clone https://github.com/reesa-dayani/4411ProjectDev.git
-cd 4411ProjectDev
+git clone https://github.com/reesa-dayani/4411ProjectEnv.git
+cd 4411ProjectEnv
 
 Run the following command to build and start the containers:
 docker-compose up --build
