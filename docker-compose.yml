@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   superset:
-    image: superset-custom  # Use the newly built image
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: superset
     ports:
       - "8086:8086"
