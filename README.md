@@ -15,18 +15,20 @@ git clone https://github.com/reesa-dayani/4411ProjectEnv.git
 cd 4411ProjectEnv
 
 Run the following command to build and start the containers:
-docker-compose up --build
+- docker-compose build
+- docker-compose up
+
 
 
 ### Access Superset
 Once the containers are running, open your browser and go to:
-http://localhost:8086
+- http://localhost:8086
 Log in with the admin credentials from your .env file.
 
 ### Stop the Services
 To stop the containers, press CTRL+C or run:
 
-docker-compose down
+- docker-compose down
 
 
 <!--
