@@ -1,3 +1,34 @@
+
+# Superset Docker Project
+
+This repository contains a pre-configured setup to run Apache Superset using Docker.
+
+## Prerequisites
+- Install [Docker](https://www.docker.com/get-started).
+- Install [Docker Compose](https://docs.docker.com/compose/install/).
+
+## How to Download and Run
+
+### 1. Clone the Repository
+Clone this repository to your local machine:
+git clone https://github.com/reesa-dayani/4411ProjectDev.git
+cd 4411ProjectDev
+
+Run the following command to build and start the containers:
+docker-compose up --build
+
+
+### Access Superset
+Once the containers are running, open your browser and go to:
+http://localhost:8086
+Log in with the admin credentials from your .env file.
+
+### Stop the Services
+To stop the containers, press CTRL+C or run:
+
+docker-compose down
+
+
 <!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
