@@ -1,5 +1,6 @@
+import os
 SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
-SECRET_KEY = os.getenv("SUPERSET_SECRET_KEY", "fallback-secret-key")
+SECRET KEY = "0+0t7GuqPudV7xWuW2EtMZ+nGOedNy4SliRWrU3tsuY4XLdwIGJQq01L"
 
 DEBUG = True
 
