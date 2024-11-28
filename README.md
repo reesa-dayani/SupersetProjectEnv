@@ -13,7 +13,7 @@ This repository contains a pre-configured setup to run Apache Superset using Doc
 Clone this repository to your local machine:
 - git clone https://github.com/reesa-dayani/SupersetProjectEnv.git
 - In the terminal,
--   either type in: touch .env + paste your .env credentials OR move the .env file (already downloaded) to 4411ProjectEnv directory
+-   either type in: touch .env + paste your .env credentials OR move the .env file (already downloaded) to directory
 
 Run the following command to build and start the containers:
 - docker-compose build
